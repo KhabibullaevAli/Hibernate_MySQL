@@ -23,19 +23,5 @@ public class Main {
         }
         userDao.cleanUsersTable();
         userDao.dropUsersTable();
-
-
-
-
-//        UserService userService = new UserServiceImpl();
-//        userService.dropUsersTable();
-//        userService.createUsersTable();
-//        userService.saveUser("testName", "testLastName", (byte) 19);
-//        List<User> userList = userService.getAllUsers();
-//        for (User user:userList) {
-//            System.out.println(user);
-//        }
-//        userService.cleanUsersTable();
-
     }
 }

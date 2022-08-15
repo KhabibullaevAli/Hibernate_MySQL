@@ -67,4 +67,22 @@ public class User {
                 .append(" lastName: ").append(this.lastName)
                 .append(" age: ").append(this.age)).toString();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User user)) return false;
+
+        if (!name.equals(user.name)) return false;
+        if (!lastName.equals(user.lastName)) return false;
+        return age.equals(user.age);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + lastName.hashCode();
+        result = 31 * result + age.hashCode();
+        return result;
+    }
 }

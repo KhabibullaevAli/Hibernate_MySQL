@@ -12,7 +12,7 @@ import java.util.List;
 import static jm.task.core.jdbc.util.HibernateUtil.getSessionFactory;
 
 public class UserDaoHibernateImpl implements UserDao {
-    SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
     public UserDaoHibernateImpl() {
         sessionFactory = getSessionFactory();
@@ -76,9 +76,7 @@ public class UserDaoHibernateImpl implements UserDao {
     public void cleanUsersTable() {
         Session session = sessionFactory.openSession();
         session.getTransaction().begin();
-        for (User user : getAllUsers()) {
-            session.delete(user);
-        }
+        session.createQuery("DELETE FROM User").executeUpdate();
         session.getTransaction().commit();
         session.close();
     }
